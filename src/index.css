@@ -41,3 +41,9 @@ body {
     cursor: pointer;
     width: 150px;
 }
+
+.pokemon-card {
+    padding: .5rem;
+    border-radius: 10px;
+    border: 1px solid lightgray;
+}
