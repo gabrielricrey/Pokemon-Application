@@ -2,10 +2,11 @@ import { useEffect, useState } from "react"
 import Pokemon from "./Pokemon"
 
 let PokemonApplication = () => {
-    
-    let [pokemons,setPokemons] = useState(null);
-    let [index,setIndex] = useState("0");
-    let [pokemon,setPokemon] = useState(null);
+
+    let [pokemons, setPokemons] = useState(null);
+    let [index, setIndex] = useState("0");
+    let [pokemon, setPokemon] = useState(null);
+    let [show,setShow] = useState(true);
 
     useEffect(() => {
         let getData = async () => {
@@ -24,18 +25,24 @@ let PokemonApplication = () => {
 
     }
 
-    
+    let toggleShow = () => {
+        setShow(!show);
+    }
+
+
 
     return (
         <>
-        <label htmlFor="pokemons">Pokemons: </label>
-        <select id="pokemons" onChange={(e) => setIndex(e.target.value)}>
-            {pokemons && pokemons.results.map((pokemon,i) => <option key={i} value={i}> {pokemon.name}</option>)}
-        </select>
-        <button onClick={() => getPokemon(index)}>Get Info</button>
-        {pokemon && <Pokemon {...pokemon}/>}
+            <div className={show ? "" : "hide"}>
+                <select id="pokemons" onChange={(e) => setIndex(e.target.value)}>
+                    {pokemons && pokemons.results.map((pokemon, i) => <option key={i} value={i}> {pokemon.name}</option>)}
+                </select>
+                <button onClick={() => {getPokemon(index); toggleShow() }}> Get Info</button>
+            </div>
 
-        
+            {pokemon && <div className={show ? "hide" : ""}><Pokemon {...pokemon} toggleShow={toggleShow}/></div>}
+
+
         </>
     )
 }

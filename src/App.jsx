@@ -1,19 +1,18 @@
 import { useState } from 'react'
 import './App.css'
 import PokemonApplication from './components/PokemonApplication'
+import IntroPage from './pages/IntroPage'
+import HomePage from './pages/HomePage'
+import { Routes, Route, Link} from 'react-router-dom'
 
 function App() {
 
-  let [startApp, getStartApp] = useState(false);
-
-
   return (
     <>
-      <div className='container'>
-        <h1>Pokemon App</h1>
-        <button onClick={() => getStartApp(!startApp)}>{!startApp ? "Start App" : "Close App"}</button>
-        {startApp && <PokemonApplication />}
-      </div>
+      <Routes>
+        <Route path='/' element={<IntroPage/>}/>
+        <Route path='/choosepokemon' element={<HomePage/>}/>
+      </Routes>
     </>
   )
 }
