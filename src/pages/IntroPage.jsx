@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom'
+import image from '../images/pokeball.png'
 
 const IntroPage = () => {
 
     return (
-        <>
+        <div className='container'>
             <h1>Pokemon App</h1>
-            <button><Link to="/choosepokemon">Start App</Link></button>
-        </>
+            <p>Get info about a certain Pokemon</p>
+            <img src={image}/>
+            <button><Link to="/choosepokemon">Get Started</Link></button>
+        </div>
     )
 }
 

@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react"
 import Pokemon from "./Pokemon"
+import image from '../images/pokeball.png'
 
 let PokemonApplication = () => {
 
     let [pokemons, setPokemons] = useState(null);
     let [index, setIndex] = useState("0");
     let [pokemon, setPokemon] = useState(null);
-    let [show,setShow] = useState(true);
+    let [show, setShow] = useState(true);
 
     useEffect(() => {
         let getData = async () => {
@@ -33,14 +34,15 @@ let PokemonApplication = () => {
 
     return (
         <>
-            <div className={show ? "" : "hide"}>
+            <div className={show ? "container" : "hide"}>
+                <img src={image} />
                 <select id="pokemons" onChange={(e) => setIndex(e.target.value)}>
                     {pokemons && pokemons.results.map((pokemon, i) => <option key={i} value={i}> {pokemon.name}</option>)}
                 </select>
-                <button onClick={() => {getPokemon(index); toggleShow() }}> Get Info</button>
+                <button onClick={() => { getPokemon(index); toggleShow() }}> Get Info</button>
             </div>
 
-            {pokemon && <div className={show ? "hide" : ""}><Pokemon {...pokemon} toggleShow={toggleShow}/></div>}
+            {pokemon && <div className={show ? "hide" : ""}><Pokemon {...pokemon} toggleShow={toggleShow} /></div>}
 
 
         </>
