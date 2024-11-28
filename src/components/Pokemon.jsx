@@ -7,11 +7,11 @@ let Pokemon = ({ name, sprites, types, height, weight, toggleShow }) => {
                 <div className="image-div">
                     <img src={sprites.front_default} />
                 </div>
-                    <h4 className="name">{name}</h4>
+                    <p className="name">{name}</p>
                 <div className="info-div">
-                    <h4>Type: {types[0].type.name}</h4>
-                    <h4>Height: {height}</h4>
-                    <h4>Weight: {weight}</h4>
+                    <p>Type: {types[0].type.name}</p>
+                    <p>Height: {height}</p>
+                    <p>Weight: {weight}</p>
                 </div>
             </div>
             <button onClick={toggleShow}>Back</button>

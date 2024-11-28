@@ -35,7 +35,7 @@ let PokemonApplication = () => {
     return (
         <>
             <div className={show ? "container" : "hide"}>
-                <img src={image} />
+                <img src={image} className="pokeball"/>
                 <select id="pokemons" onChange={(e) => setIndex(e.target.value)}>
                     {pokemons && pokemons.results.map((pokemon, i) => <option key={i} value={i}> {pokemon.name}</option>)}
                 </select>
